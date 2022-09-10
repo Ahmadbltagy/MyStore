@@ -1,1 +1,31 @@
-<p>product-item-detail works!</p>
+<section class="container w-60">
+  <div class="row m-5">
+    <div class="col">
+      <img
+        class="rounded"
+        [src]="product.url"
+        [alt]="product.name"
+        width="300"
+        height="450"
+      />
+    </div>
+    <div class="col m-auto">
+      <h2>{{ product.name }}</h2>
+      <p>${{ product.price }}</p>
+      <select name="prdCnt" class="w-50">
+        <option
+          *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+          [value]="number"
+        >
+          {{ number }}
+        </option>
+      </select>
+      <p>{{ product.description }}</p>
+      <button class="btn btn-primary mb-3">Add to cart</button>
+      <br />
+      <a routerLink="/" class="text-primary" style="text-decoration: none"
+        >&larr; Back to product list</a
+      >
+    </div>
+  </div>
+</section>

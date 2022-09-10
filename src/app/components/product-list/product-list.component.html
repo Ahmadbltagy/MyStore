@@ -1,1 +1,9 @@
-<p>product-list works!</p>
+<section class="container">
+  <div class="row">
+    <app-product-item
+      class="col"
+      *ngFor="let product of productList"
+      [products]="product"
+    ></app-product-item>
+  </div>
+</section>

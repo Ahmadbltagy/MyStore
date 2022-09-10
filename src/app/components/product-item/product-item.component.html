@@ -1,1 +1,20 @@
-<p>product-item works!</p>
+<div class="card text-center" style="width: 18rem; margin: 20px 0">
+  <a routerLink="/product-detail" (click)="productDetails(products)">
+    <img class="card-img-top" [src]="products.url" alt="Card image cap" />
+  </a>
+  <div class="card-body">
+    <h5 class="card-title">{{ products.name }}</h5>
+    <p class="card-text">${{ products.price }}</p>
+
+    <select name="prdCnt" class="w-50 mb-3">
+      <option
+        *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+        [value]="number"
+      >
+        {{ number }}
+      </option>
+    </select>
+    <br />
+    <button class="btn btn-primary">Add To Cart</button>
+  </div>
+</div>

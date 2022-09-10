@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IProduct } from 'src/app/models/iproduct';
+import { ProductDetailsService } from 'src/app/services/product-details.service';
 
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.css']
+  styleUrls: ['./product-item.component.css'],
 })
 export class ProductItemComponent implements OnInit {
+  @Input() products: any;
 
-  constructor() { }
+  constructor(private showProduct: ProductDetailsService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  productDetails(product: IProduct) {
+    this.showProduct.showProductDetails(product);
   }
-
 }
