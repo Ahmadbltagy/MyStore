@@ -1,0 +1,30 @@
+.center {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 0 10px;
+}
+li:nth-child(1) {
+  margin-left: 0;
+}
+
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: rgba(255, 255, 255, 0.652);
+}
+
+img {
+  fill: #fff;
+}
