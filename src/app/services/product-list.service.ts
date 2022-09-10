@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductListService {
-  productList: any;
+  productList: IProduct[] = [];
 
   constructor(private http: HttpClient) {}
 
