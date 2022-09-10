@@ -1,0 +1,18 @@
+input[type="number"] {
+  text-align: center;
+  width: 40%;
+}
+input[type="text"] {
+  width: 100%;
+}
+
+.prd-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.credit-det {
+  font-size: 10px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.525);
+}

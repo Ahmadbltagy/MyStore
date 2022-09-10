@@ -1,1 +1,67 @@
-<p>cart works!</p>
+<section class="container">
+  <div class="row m-5">
+    <div class="col-6">
+      <div class="row m-5" *ngFor="let product of products">
+        <div class="col">
+          <img
+            class="rounded"
+            [src]="product.url"
+            [alt]="product.name"
+            width="200"
+            height="250"
+          />
+        </div>
+        <div class="col">
+          <p class="prd-name">{{ product.name }}</p>
+          <p>${{ product.price }}</p>
+          <p>Amount: <input type="number" value="2" /></p>
+        </div>
+      </div>
+      <h4>Total price ${{ totalPrice }}</h4>
+    </div>
+
+    <div class="col-4">
+      <form #form="ngForm" (ngSubmit)="submitForm()">
+        <div class="my-2">
+          <label for="name" class="mb-2">Full name</label>
+          <input
+            required
+            type="text"
+            minlength="3"
+            placeholder="(minimum 3 characters)"
+          />
+        </div>
+        <div class="my-2">
+          <label for="Address" class="mb-2">Address</label>
+          <input
+            required
+            type="text"
+            minlength="6"
+            placeholder="(minimum 6 characters)"
+          />
+        </div>
+        <div class="my-2">
+          <label for="creditCard">Credit card number</label>
+          <input
+            required
+            type="text"
+            minlength="16"
+            maxlength="16"
+            placeholder="(16-digit number)"
+          />
+        </div>
+        <p class="credit-det">
+          we will never share your payment details with anyone else
+        </p>
+        <button
+          [disabled]="form.invalid"
+          type="submit"
+          class="btn btn-primary"
+          routerLink="/confirm"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

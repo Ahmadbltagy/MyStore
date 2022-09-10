@@ -21,7 +21,9 @@
         </option>
       </select>
       <p>{{ product.description }}</p>
-      <button class="btn btn-primary mb-3">Add to cart</button>
+      <button class="btn btn-primary mb-3" (click)="addToCart(product)">
+        Add to cart
+      </button>
       <br />
       <a routerLink="/" class="text-primary" style="text-decoration: none"
         >&larr; Back to product list</a
