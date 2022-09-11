@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProduct } from 'src/app/models/iproduct';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -11,7 +12,7 @@ export class CartComponent implements OnInit {
   products: IProduct[] = [];
   totalPrice: number = 0;
   itemCnt: { id: number; itemCnt: number }[] = [];
-  constructor(private cartProduct: CartService) {}
+  constructor(private cartProduct: CartService, private router: Router) {}
 
   calPrice() {
     this.totalPrice = 0;
@@ -26,7 +27,7 @@ export class CartComponent implements OnInit {
     this.calPrice();
   }
   submitForm(data: any) {
-    console.log(data.address);
+    this.router.navigate(['/confirm']);
   }
   orderChange(cnt: any, id: any) {
     this.itemCnt.forEach((item) => {
