@@ -8,6 +8,11 @@ export class CartService {
   cartProduct: IProduct[] = [];
   cartCnt: { id: number; itemCnt: number }[] = [];
 
+  confDetails?: {
+    name: string;
+    totalPrice: number;
+  };
+
   constructor() {}
 
   getCartProduct() {
@@ -34,8 +39,18 @@ export class CartService {
         itemCnt: +itemCnt,
       });
     }
-    console.log();
 
     return this.cartProduct;
+  }
+
+  setConfirmData(name: string, totalPrice: number) {
+    this.confDetails = {
+      name: name,
+      totalPrice: totalPrice,
+    };
+  }
+
+  getConfitmData() {
+    return this.confDetails;
   }
 }

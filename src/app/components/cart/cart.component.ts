@@ -27,8 +27,10 @@ export class CartComponent implements OnInit {
     this.calPrice();
   }
   submitForm(data: any) {
+    this.cartProduct.setConfirmData(data.fullName, this.totalPrice);
     this.router.navigate(['/confirm']);
   }
+
   orderChange(cnt: any, id: any) {
     this.itemCnt.forEach((item) => {
       if (item.id == id) item.itemCnt = cnt.value;
