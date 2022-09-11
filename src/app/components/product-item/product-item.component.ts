@@ -10,7 +10,7 @@ import { ProductDetailsService } from 'src/app/services/product-details.service'
 })
 export class ProductItemComponent implements OnInit {
   @Input() products: any;
-
+  itemCnt: any;
   constructor(
     private showProduct: ProductDetailsService,
     private cart: CartService
@@ -20,9 +20,9 @@ export class ProductItemComponent implements OnInit {
   productDetails(product: IProduct) {
     this.showProduct.showProductDetails(product);
   }
-  addToCart(product: IProduct) {
-    this.cart.addToCart(product);
-
-    alert('Product Addedd');
+  addToCart(product: IProduct, itemCnt: any) {
+    this.itemCnt = itemCnt;
+    this.cart.addToCart(product, this.itemCnt);
+    alert('Added to cart');
   }
 }

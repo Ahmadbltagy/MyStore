@@ -11,7 +11,7 @@
     <h5 class="card-title">{{ products.name }}</h5>
     <p class="card-text">${{ products.price }}</p>
 
-    <select name="prdCnt" class="w-50 mb-3">
+    <select #cnt name="prdCnt" class="w-50 mb-3">
       <option
         *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
         [value]="number"
@@ -20,7 +20,7 @@
       </option>
     </select>
     <br />
-    <button class="btn btn-primary" (click)="addToCart(products)">
+    <button class="btn btn-primary" (click)="addToCart(products, cnt.value)">
       Add To Cart
     </button>
   </div>

@@ -1,0 +1,15 @@
+.section-confirm {
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+a:link,
+a:visited {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #0275d8;
+  color: #fff;
+  margin-top: 10px;
+  border-radius: 5px;
+}
