@@ -1,0 +1,83 @@
+<form #form="ngForm" (ngSubmit)="submitForm()">
+  <div class="form-group mb-2">
+    <label class="mb-2" for="fullName">Full name: </label>
+    <br />
+    <input
+      id="fullName"
+      class="form-control"
+      name="fullName"
+      type="text"
+      minlength="3"
+      placeholder="(minimum 3 characters)"
+      required
+      [(ngModel)]="fullName"
+      #name="ngModel"
+    />
+    <div class="alert" *ngIf="name.invalid && (name.dirty || name.touched)">
+      <div *ngIf="name.errors?.['required']">
+        <p>Name is required.</p>
+      </div>
+      <div *ngIf="name.errors?.['minlength']">
+        <p>Name must be at least 3 characters long.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group mb-2">
+    <label class="mb-2" for="address">Address</label>
+    <input
+      id="address"
+      class="form-control"
+      name="address"
+      type="text"
+      minlength="6"
+      required
+      placeholder="(minimum 6 characters)"
+      [(ngModel)]="address"
+      #adres="ngModel"
+    />
+
+    <div class="alert" *ngIf="adres.invalid && (adres.dirty || adres.touched)">
+      <div *ngIf="adres.errors?.['required']">
+        <p>Adress is required</p>
+      </div>
+      <div *ngIf="adres.errors?.['minlength']">
+        <p>Adress must be at least 6 characters long.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group mb-2">
+    <label class="mb-2" for="cc_number">Credit card number</label>
+    <input
+      id="cc_number"
+      class="form-control"
+      name="cc_number"
+      placeholder="(16-digit-number)"
+      minlength="16"
+      maxlength="19"
+      type="tel"
+      inputmode="numeric"
+      pattern="^[0-9]*$"
+      required
+      [(ngModel)]="cc_number"
+      #ccn="ngModel"
+    />
+
+    <div *ngIf="ccn.invalid && (ccn.dirty || ccn.touched)">
+      <div *ngIf="ccn.errors?.['required']">
+        <p>Credit card number is required</p>
+      </div>
+      <div *ngIf="ccn.errors?.['pattern']">
+        <p>Credit card must be number only</p>
+      </div>
+      <div *ngIf="ccn.errors?.['minlength']">
+        <p>Credit card number must be at least 16 number.</p>
+      </div>
+    </div>
+  </div>
+  <p class="msg">We'll never share your paymant details with anyone else.</p>
+  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">
+    Submit
+  </button>
+</form>

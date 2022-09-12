@@ -37,54 +37,7 @@
     </div>
 
     <div class="col-4">
-      <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
-        <div class="my-2">
-          <label for="fullName" class="mb-2">Full name</label>
-          <input
-            id="fullName"
-            required
-            ngModel
-            type="text"
-            name="fullName"
-            minlength="3"
-            placeholder="(minimum 3 characters)"
-          />
-        </div>
-        <div class="my-2">
-          <label for="address" class="mb-2">Address</label>
-          <input
-            id="address"
-            ngModel
-            required
-            type="text"
-            name="address"
-            minlength="6"
-            placeholder="(minimum 6 characters)"
-          />
-        </div>
-
-        <div class="my-2">
-          <label name="credit-num" for="creditCard">Credit card number</label>
-          <input
-            id="credit-num"
-            class="cc-number w-100"
-            ngModel
-            required
-            name="cc-number"
-            minlength="16"
-            maxlength="16"
-            placeholder="(16-digit number)"
-            pattern="[0-9\s]{13,19}"
-            type="tel"
-          />
-        </div>
-        <p class="credit-det">
-          we will never share your payment details with anyone else
-        </p>
-        <button type="submit" [disabled]="form.invalid" class="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      <app-confirm-form (name)="submitForm($event)"></app-confirm-form>
     </div>
   </div>
 </section>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { IProduct } from 'src/app/models/iproduct';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -12,7 +11,7 @@ export class CartComponent implements OnInit {
   products: IProduct[] = [];
   totalPrice: number = 0;
   itemCnt: { id: number; itemCnt: number }[] = [];
-  constructor(private cartProduct: CartService, private router: Router) {}
+  constructor(private cartProduct: CartService) {}
 
   calPrice() {
     this.totalPrice = 0;
@@ -26,9 +25,8 @@ export class CartComponent implements OnInit {
     this.itemCnt = this.cartProduct.getCartCnt();
     this.calPrice();
   }
-  submitForm(data: any) {
-    this.cartProduct.setConfirmData(data.fullName, this.totalPrice);
-    this.router.navigate(['/confirm']);
+  submitForm(name: any) {
+    this.cartProduct.setConfirmData(name, this.totalPrice);
   }
 
   orderChange(cnt: any, id: any) {
