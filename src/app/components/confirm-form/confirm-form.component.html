@@ -10,7 +10,8 @@
       minlength="3"
       placeholder="(minimum 3 characters)"
       required
-      [(ngModel)]="fullName"
+      [ngModel]="fullName"
+      (ngModelChange)="fullName = $event"
       #name="ngModel"
     />
     <div class="alert" *ngIf="name.invalid && (name.dirty || name.touched)">
