@@ -10,6 +10,13 @@
             width="200"
             height="250"
           />
+          <button
+            type="button"
+            class="btn btn-danger mt-2"
+            (click)="removeItem(product)"
+          >
+            Remove
+          </button>
         </div>
         <div class="col">
           <p class="prd-name">{{ product.name }}</p>
@@ -55,17 +62,20 @@
             placeholder="(minimum 6 characters)"
           />
         </div>
+
         <div class="my-2">
           <label name="credit-num" for="creditCard">Credit card number</label>
           <input
             id="credit-num"
+            class="cc-number w-100"
             ngModel
             required
-            name="credit"
-            type="text"
+            name="cc-number"
             minlength="16"
             maxlength="16"
             placeholder="(16-digit number)"
+            pattern="[0-9\s]{13,19}"
+            type="tel"
           />
         </div>
         <p class="credit-det">

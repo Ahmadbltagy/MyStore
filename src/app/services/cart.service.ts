@@ -53,4 +53,10 @@ export class CartService {
   getConfitmData() {
     return this.confDetails;
   }
+  removedItem(product: IProduct) {
+    this.cartCnt = this.cartCnt.filter((prd) => prd.id != product.id);
+    return (this.cartProduct = this.cartProduct.filter(
+      (prd) => prd.id != product.id
+    ));
+  }
 }

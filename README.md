@@ -8,6 +8,11 @@ It's an Ecommerce website you can buy any thing from your place
 - rxjs
 - formModule
 
+## Modules
+
+- HttpClient
+- forms
+
 ## Components
 
 - cart

@@ -37,4 +37,10 @@ export class CartComponent implements OnInit {
     });
     this.calPrice();
   }
+
+  removeItem(product: IProduct) {
+    this.cartProduct.removedItem(product);
+    this.ngOnInit();
+    alert('Item Removed');
+  }
 }
